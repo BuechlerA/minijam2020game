@@ -14,7 +14,7 @@ dest_files=[ "res://.import/ear_human.png-85546e44663759ec5352006c7b03289d.stex"
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

@@ -14,7 +14,7 @@ dest_files=[ "res://.import/body_human.png-7fd781fb75a8ce16e5377aa92d27b814.stex
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

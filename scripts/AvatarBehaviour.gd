@@ -20,6 +20,7 @@ func GET_FILE(FILE):
 func SET_PART(OBJ, BODY_PART):
 	var f = GET_FILE(BODY_PART)
 	if f:OBJ.set_texture(f)
+	else:OBJ.hide()
 
 func SET_APPEARANCE(DATA):
 	print("Avatar/SET_APPEARANCE ", DATA)

@@ -14,7 +14,7 @@ dest_files=[ "res://.import/nose_fire.png-d462bb233ef0e18befb4fae0257a9228.stex"
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

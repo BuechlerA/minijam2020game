@@ -14,7 +14,7 @@ dest_files=[ "res://.import/ear_fire.png-8429f0e59e8d212f6d7fa59b1dc3f6df.stex" 
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

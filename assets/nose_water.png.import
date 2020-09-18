@@ -14,7 +14,7 @@ dest_files=[ "res://.import/nose_water.png-9db320662bcc86144da382373ed3b975.stex
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

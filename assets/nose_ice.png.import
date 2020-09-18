@@ -14,7 +14,7 @@ dest_files=[ "res://.import/nose_ice.png-e6c712abb69ff04b41243c1c436bbec4.stex" 
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

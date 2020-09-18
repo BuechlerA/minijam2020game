@@ -14,7 +14,7 @@ dest_files=[ "res://.import/eye_poison.png-9c6d8d8c4292fd3713c9a37c0a7af96e.stex
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
