@@ -1,15 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/PhoneButton.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 
-[node name="PhoneButton" type="TextureButton"]
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.423529, 0.203922, 0.615686, 1 )
+corner_radius_top_left = 19
+corner_radius_top_right = 19
+corner_radius_bottom_right = 19
+corner_radius_bottom_left = 19
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.164706, 0.215686, 0.278431, 1 )
+corner_radius_top_left = 19
+corner_radius_top_right = 19
+corner_radius_bottom_right = 19
+corner_radius_bottom_left = 19
+
+[node name="PhoneButton" type="Button"]
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 32, 32 )
 size_flags_horizontal = 6
 size_flags_vertical = 2
-texture_normal = ExtResource( 2 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
