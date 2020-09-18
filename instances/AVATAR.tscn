@@ -13,6 +13,7 @@ __meta__ = {
 }
 
 [node name="SP_Cloth" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -22,6 +23,7 @@ __meta__ = {
 }
 
 [node name="SP_Body" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -30,9 +32,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SP_Arms" type="TextureRect" parent="."]
+[node name="SP_Arm_R" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SP_Arm_L" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 70, 0 )
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
@@ -40,6 +53,7 @@ __meta__ = {
 }
 
 [node name="SP_Face" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -49,6 +63,7 @@ __meta__ = {
 }
 
 [node name="SP_Ears" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -58,6 +73,7 @@ __meta__ = {
 }
 
 [node name="SP_Hair" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
