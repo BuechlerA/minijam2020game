@@ -21,7 +21,7 @@ func SET_PART(OBJ, BODY_PART):
 	if f:OBJ.set_texture(f)
 
 func SET_APPEARANCE(DATA):
-	print("Avater/SET_APPEARANCE ", DATA)
+	print("Avatar/SET_APPEARANCE ", DATA)
 	#DATA SHOULD CONTAIN 7 values for a new body
 	#DATA will be created using a dictionary
 	#The dictionary has to be json
@@ -30,5 +30,4 @@ func SET_APPEARANCE(DATA):
 		SET_PART( get_node(part_order[index]), DATA[index])
 
 func _ready():
-
 	pass
