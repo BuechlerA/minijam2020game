@@ -77,13 +77,13 @@ margin_bottom = 262.0
 size_flags_vertical = 3
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PhonePanel/VBoxContainer/HBoxContainer"]
+[node name="NO" type="TextureRect" parent="PhonePanel/VBoxContainer/HBoxContainer"]
 margin_left = 26.0
 margin_right = 90.0
 margin_bottom = 65.0
 texture = ExtResource( 1 )
 
-[node name="TextureRect2" type="TextureRect" parent="PhonePanel/VBoxContainer/HBoxContainer"]
+[node name="YES" type="TextureRect" parent="PhonePanel/VBoxContainer/HBoxContainer"]
 margin_left = 94.0
 margin_right = 158.0
 margin_bottom = 65.0
