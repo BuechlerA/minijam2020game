@@ -1,7 +1,7 @@
 extends Control
 export (String, FILE, "*.json") var path : String
 var library = {}
-const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR"]
+const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
 const ELEMENTALS = ["FIRE","WATER","POISON","ICE","HUMAN"]
 
 onready var avatarObject = $PhonePanel/VBoxContainer/AVATAR
