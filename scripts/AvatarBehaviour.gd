@@ -12,8 +12,6 @@ const part_order = ["SP_Body",
 					"SP_Nose",
 					"SP_Hair"]
 
-
-
 func GET_FILE(FILE):
 	var path2file = lib_path + FILE
 	return load(path2file)
@@ -23,6 +21,7 @@ func SET_PART(OBJ, BODY_PART):
 	if f:OBJ.set_texture(f)
 
 func SET_APPEARANCE(DATA):
+	print("Avater/SET_APPEARANCE ", DATA)
 	#DATA SHOULD CONTAIN 7 values for a new body
 	#DATA will be created using a dictionary
 	#The dictionary has to be json
