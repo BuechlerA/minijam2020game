@@ -20,7 +20,10 @@ func SET_PART(OBJ, BODY_PART):
 		OBJ.set_texture(f)
 
 func SET_APPEARANCE(DATA):
-	#DATA = ["WATER","WATER","WATER","FIRE","WATER","AIR","FIRE]
+	#DATA SHOULD CONTAIN 7 values for a new body
+	#DATA will be created using a dictionary
+	#The dictionary has to be json
+	#we can convert the google sheet into a json using python
 	for index in range(part_order.size()):
 		SET_PART( get_node(part_order[index]), DATA[index])
 
