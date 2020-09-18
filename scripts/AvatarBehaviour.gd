@@ -8,16 +8,15 @@ const part_order = ["SP_Body",
 					"SP_Eyes",
 					"SP_Mouth",
 					"SP_Nose",
-					"SP_Hair"
-]
+					"SP_Hair"]
+					
 func GET_FILE(FILE):
 	var path2file = lib_path + FILE
 	return load(path2file)
 
 func SET_PART(OBJ, BODY_PART):
 	var f = GET_FILE(BODY_PART)
-	if f:
-		OBJ.set_texture(f)
+	if f:OBJ.set_texture(f)
 
 func SET_APPEARANCE(DATA):
 	#DATA SHOULD CONTAIN 7 values for a new body
