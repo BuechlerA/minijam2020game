@@ -102,16 +102,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonYes" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
+[node name="YES" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
 margin_left = 22.0
 margin_right = 54.0
 margin_bottom = 32.0
 
-[node name="ButtonNo" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
+[node name="NO" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
 margin_left = 103.0
 margin_right = 135.0
 margin_bottom = 32.0
-type = 1
 
 [node name="Phonecase" type="TextureRect" parent="PhonePanel"]
 anchor_right = 1.0

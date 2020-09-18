@@ -1,9 +1,13 @@
 extends Control
 
-
+signal CONFIRM(YN)
 func _ready():
-	$Buttons/ButtonNo.connect("buttonPressed", self, "OnButtonPressed")
-	$Buttons/ButtonYes.connect("buttonPressed", self, "OnButtonPressed")
+	$Buttons/NO.connect("pressed", self, "_BUTTON_NO")
+	$Buttons/YES.connect("pressed", self, "_BUTTON_YES")
 
-func OnButtonPressed(type):
-	print(type)
+func _BUTTON_NO():
+	emit_signal("CONFIRM",false)
+	print("NO")
+func _BUTTON_YES():
+	emit_signal("CONFIRM",false)
+	print("YES")

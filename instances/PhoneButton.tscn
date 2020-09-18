@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=2]
-
-[ext_resource path="res://scripts/PhoneButton.gd" type="Script" id=1]
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.423529, 0.203922, 0.615686, 1 )
@@ -24,7 +22,6 @@ size_flags_horizontal = 6
 size_flags_vertical = 2
 custom_styles/pressed = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
