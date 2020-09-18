@@ -103,18 +103,19 @@ __meta__ = {
 }
 
 [node name="ButtonYes" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
-margin_left = 6.0
-margin_right = 70.0
+margin_left = 22.0
+margin_right = 54.0
+margin_bottom = 32.0
 
 [node name="ButtonNo" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
-margin_left = 87.0
-margin_right = 151.0
+margin_left = 103.0
+margin_right = 135.0
+margin_bottom = 32.0
 type = 1
 
 [node name="Phonecase" type="TextureRect" parent="PhonePanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 __meta__ = {
