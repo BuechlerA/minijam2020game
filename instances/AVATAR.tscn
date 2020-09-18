@@ -8,6 +8,9 @@ margin_bottom = 140.0
 rect_min_size = Vector2( 140, 140 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SP_Cloth" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -19,6 +22,15 @@ __meta__ = {
 }
 
 [node name="SP_Body" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SP_Arms" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
