@@ -1,7 +1,76 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://scripts/AvatarBehaviour.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec4 MY_COLOR: hint_color;
+uniform float x_shift;
+uniform float y_shift;
+uniform float fader: hint_range(0.0, 1.0);
+uniform float blur;
+uniform float blend: hint_range(0.0,1.0);
+uniform float distortion = 180.0;
+
+float rand(vec2 coord)
+{
+	return fract(sin(dot(coord, vec2(12.9898, 78.233)))* 43758.5453123);
+}
+float noise(vec2 coord)
+{
+	vec2 i = floor(coord);
+	vec2 f = fract(coord);
+	
+	// 4 corners of a rectangle surrounding our point
+	float a = rand(i);
+	float b = rand(i + vec2(1.0, 0.0));
+	float c = rand(i + vec2(0.0, 1.0));
+	float d = rand(i + vec2(1.0, 1.0));
+	vec2 cubic = f * f * (3.0 - 2.0 * f);
+	return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.x) + (d - b) * cubic.x * cubic.y;
+}
+
+vec2 D_UV(vec2 uv, float time)
+{
+	vec2 noise_1 = uv * 8.0;	
+	vec2 noise_2 = uv * 8.0 + 4.0;	
+	vec2 motion1 = vec2(time * 0.3, time + -0.4);
+	vec2 motion2 = vec2(time * 0.1, time + 0.5);
+	vec2 distort1 = vec2(noise(noise_1 + motion1), noise(noise_2 + motion1)) - vec2(0.5);
+	vec2 distort2 = vec2(noise(noise_1 + motion2), noise(noise_2 + motion2)) - vec2(0.5);
+	return (distort1 + distort2) / distortion; //180
+}
+
+void fragment()
+{
+	vec2 my_uv = (UV-0.5) * vec2(1.0,-1.0) + vec2(0.0,1);//SCREEN_UV;
+	my_uv.x -= x_shift;
+	my_uv.y -= y_shift;
+	
+	vec3 game_scene = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;     
+
+	vec2 DUV = SCREEN_UV + D_UV(UV, TIME);
+	vec3 distorted_game_scene =  textureLod(SCREEN_TEXTURE, DUV, blur).rgb  ;
+	distorted_game_scene = mix(MY_COLOR.rgb, distorted_game_scene, blend);
+	distorted_game_scene *= vec3( clamp(pow(1.0-UV.y, 0.5) * 2.0, 0.0 ,2.0)  ); //glow
+
+	
+	COLOR.rgb = distorted_game_scene; 
+	COLOR.a= fader; 
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/MY_COLOR = Color( 0.572549, 0.572549, 0.572549, 1 )
+shader_param/x_shift = null
+shader_param/y_shift = null
+shader_param/fader = 1.0
+shader_param/blur = null
+shader_param/blend = 0.0
+shader_param/distortion = 180.0
 
 [node name="AVATAR" type="Control"]
 margin_right = 140.0
@@ -13,7 +82,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-path = "res://assets/LIB.json"
 
 [node name="SP_Body" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -74,6 +142,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GlitchFX" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
