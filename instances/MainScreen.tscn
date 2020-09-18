@@ -62,19 +62,19 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="PhonePanel/VBoxContainer"]
 margin_right = 184.0
-margin_bottom = 10.0
-custom_constants/margin_bottom = 10
+margin_bottom = 25.0
+custom_constants/margin_bottom = 25
 
 [node name="AVATAR" parent="PhonePanel/VBoxContainer" instance=ExtResource( 4 )]
-margin_left = 17.0
-margin_top = 13.0
-margin_right = 167.0
-margin_bottom = 263.0
+margin_left = 22.0
+margin_top = 29.0
+margin_right = 162.0
+margin_bottom = 169.0
 
 [node name="Label" type="Label" parent="PhonePanel/VBoxContainer"]
-margin_top = 268.0
+margin_top = 173.0
 margin_right = 184.0
-margin_bottom = 285.0
+margin_bottom = 190.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.654902, 0.654902, 0.654902, 1 )
 custom_colors/font_color_shadow = Color( 0.117647, 0.117647, 0.117647, 1 )
