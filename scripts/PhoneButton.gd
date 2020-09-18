@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 enum BUTTON_TYPE {YES, NO}
 export(BUTTON_TYPE) var type
 
