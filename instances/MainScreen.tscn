@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/8-bit-ArcadeIn.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://PhonePanel.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://instances/dynamic_fonts/DF_Info.tres" type="DynamicFont" id=7]
 [ext_resource path="res://instances/dynamic_fonts/DF_Name.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/BG_Test.png" type="Texture" id=9]
+[ext_resource path="res://assets/SPAYSTATION.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -31,10 +32,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BG2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PhonePanel" type="Control" parent="."]
-margin_left = 284.0
+margin_left = 276.929
 margin_top = 7.0
-margin_right = 468.0
+margin_right = 460.929
 margin_bottom = 269.0
 script = ExtResource( 2 )
 __meta__ = {

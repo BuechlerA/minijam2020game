@@ -18,6 +18,7 @@ func load_json_file(PATH) -> Dictionary:
 func _ready():
 	library = load_json_file(path)
 	_create_alien()
+	_create_planet()
 	
 func _create_planet():
 	pass
