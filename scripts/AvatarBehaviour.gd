@@ -1,4 +1,6 @@
-extends Node
+extends Control
+
+
 
 const lib_path = "res://assets/body_parts/"
 const lib_items ={}
@@ -9,7 +11,9 @@ const part_order = ["SP_Body",
 					"SP_Mouth",
 					"SP_Nose",
 					"SP_Hair"]
-					
+
+
+
 func GET_FILE(FILE):
 	var path2file = lib_path + FILE
 	return load(path2file)
@@ -27,4 +31,5 @@ func SET_APPEARANCE(DATA):
 		SET_PART( get_node(part_order[index]), DATA[index])
 
 func _ready():
+
 	pass
