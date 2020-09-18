@@ -10,7 +10,8 @@ const part_order = ["SP_Body",
 					"SP_Eyes",
 					"SP_Mouth",
 					"SP_Nose",
-					"SP_Hair"]
+					"SP_Hair",
+					"SP_Ear"]
 
 func GET_FILE(FILE):
 	var path2file = lib_path + FILE

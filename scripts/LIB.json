@@ -7,7 +7,8 @@
         "MOUTH": "mouth_water.png",
         "HAIR": "hair_water.png",
         "CHEST": "chest_water.png",
-        "ARM": "arm_water.png"
+        "ARM": "arm_water.png",
+        "EAR": "ear_water.png"
     },
     "FIRE": {
         "KEY": "FIRE",
@@ -17,7 +18,8 @@
         "MOUTH": "mouth_fire.png",
         "HAIR": "hair_fire.png",
         "CHEST": "chest_fire.png",
-        "ARM": "arm_fire.png"
+        "ARM": "arm_fire.png",
+        "EAR": "ear_fire.png"
     },
     "POISON": {
         "KEY": "POISON",
@@ -27,7 +29,8 @@
         "MOUTH": "mouth_poison.png",
         "HAIR": "hair_poison.png",
         "CHEST": "chest_poison.png",
-        "ARM": "arm_poison.png"
+        "ARM": "arm_poison.png",
+        "EAR": "ear_poison.png"
     },
     "ICE": {
         "KEY": "ICE",
@@ -37,7 +40,8 @@
         "MOUTH": "mouth_ice.png",
         "HAIR": "hair_ice.png",
         "CHEST": "chest_ice.png",
-        "ARM": "arm_ice.png"
+        "ARM": "arm_ice.png",
+        "EAR": "ear_ice.png"
     },
     "HUMAN": {
         "KEY": "HUMAN",
@@ -47,6 +51,7 @@
         "MOUTH": "mouth_human.png",
         "HAIR": "hair_human.png",
         "CHEST": "chest_human.png",
-        "ARM": "arm_human.png"
+        "ARM": "arm_human.png",
+        "EAR": "ear_human.png"
     }
 }
