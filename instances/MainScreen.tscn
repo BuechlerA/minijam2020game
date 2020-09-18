@@ -46,18 +46,9 @@ anchor_bottom = 1.0
 margin_left = 5.0
 margin_top = 6.0
 margin_right = -4.0
-color = Color( 0.568627, 0.568627, 0.568627, 1 )
+color = Color( 0.752941, 0.752941, 0.752941, 1 )
 __meta__ = {
 "_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Phonecase" type="TextureRect" parent="PhonePanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 5 )
-expand = true
-__meta__ = {
 "_edit_use_anchors_": false
 }
 
@@ -71,42 +62,55 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="PhonePanel/VBoxContainer"]
 margin_right = 184.0
-margin_bottom = 28.0
-custom_constants/margin_bottom = 28
+margin_bottom = 10.0
+custom_constants/margin_bottom = 10
 
 [node name="AVATAR" parent="PhonePanel/VBoxContainer" instance=ExtResource( 4 )]
-margin_left = 22.0
-margin_top = 32.0
-margin_right = 162.0
-margin_bottom = 172.0
+margin_left = 17.0
+margin_top = 13.0
+margin_right = 167.0
+margin_bottom = 263.0
 
 [node name="Label" type="Label" parent="PhonePanel/VBoxContainer"]
-margin_top = 176.0
+margin_top = 268.0
 margin_right = 184.0
-margin_bottom = 193.0
+margin_bottom = 285.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.654902, 0.654902, 0.654902, 1 )
 custom_colors/font_color_shadow = Color( 0.117647, 0.117647, 0.117647, 1 )
 text = "I am cute"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PhonePanel/VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="PhonePanel"]
 margin_top = 197.0
 margin_right = 184.0
 margin_bottom = 261.0
 size_flags_vertical = 3
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ButtonYes" parent="PhonePanel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="ButtonYes" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
 margin_left = 13.0
 margin_right = 77.0
 margin_bottom = 64.0
 
-[node name="ButtonNo" parent="PhonePanel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="ButtonNo" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
 margin_left = 107.0
 margin_right = 171.0
 margin_bottom = 64.0
 type = 1
+
+[node name="Phonecase" type="TextureRect" parent="PhonePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="BIO" type="VBoxContainer" parent="."]
 anchor_top = 1.0
