@@ -147,6 +147,7 @@ __meta__ = {
 }
 
 [node name="GlitchFX" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
