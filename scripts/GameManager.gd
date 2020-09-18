@@ -31,3 +31,7 @@ func _create_alien():
 		var element = ELEMENTALS[randi()%ELEMENTALS.size()]
 		appearance.append(library.get(element, "null").get(part, "null"))
 	avatarObject.SET_APPEARANCE(appearance)
+	
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		get_tree().reload_current_scene()
