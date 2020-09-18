@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="minijam2020game"
+run/main_scene="res://instances/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

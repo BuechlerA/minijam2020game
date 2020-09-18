@@ -1,22 +1,14 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=10 format=2]
-=======
-[gd_scene load_steps=9 format=2]
->>>>>>> Stashed changes
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/8-bit-ArcadeIn.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://PhonePanel.gd" type="Script" id=2]
 [ext_resource path="res://instances/PhoneButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://instances/AVATAR.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/phone.png" type="Texture" id=5]
-<<<<<<< Updated upstream
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=6]
 [ext_resource path="res://instances/dynamic_fonts/DF_Info.tres" type="DynamicFont" id=7]
 [ext_resource path="res://instances/dynamic_fonts/DF_Name.tres" type="DynamicFont" id=8]
-=======
-[ext_resource path="res://instances/GameManager.gd" type="Script" id=6]
-[ext_resource path="res://assets/Unbenannt.png" type="Texture" id=7]
->>>>>>> Stashed changes
+[ext_resource path="res://assets/BG_Test.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -30,24 +22,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-<<<<<<< Updated upstream
-[node name="BG" type="ColorRect" parent="."]
-=======
-[node name="StationView" type="TextureRect" parent="."]
->>>>>>> Stashed changes
+[node name="BG" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PlanetView" type="TextureRect" parent="StationView"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 3.05176e-05
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -62,7 +40,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="TextureRect" parent="PhonePanel"]
+[node name="ScreenColor" type="ColorRect" parent="PhonePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 6.0
+margin_right = -4.0
+color = Color( 0.568627, 0.568627, 0.568627, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Phonecase" type="TextureRect" parent="PhonePanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 5 )
