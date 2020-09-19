@@ -5,10 +5,11 @@ onready var mesh = $MeshInstance.mesh
 func _ready():
 	randomize()
 	$AnimationPlayer.play("roate")
+	$Position3D/star/AnimationPlayer.play("spinnin")
 	var surf = MeshDataTool.new()
 	surf.create_from_surface(mesh, 0)
 
-	for j in range(500):
+	for j in range(200):
 		var dir = Vector3(rand_range(-1, 1), rand_range(-1, 1), rand_range(-1, 1)).normalized()
 
 		for i in range(surf.get_vertex_count()):
