@@ -5,9 +5,9 @@ extends Control
 const lib_path = "res://assets/"
 const lib_items ={}
 const part_order = ["SP_Body",
-					"SP_Torso",
-					"SP_Arms",
-					"SP_Eyes",
+					"SP_Chest",
+					"SP_Arm",
+					"SP_Eye",
 					"SP_Mouth",
 					"SP_Nose",
 					"SP_Hair",

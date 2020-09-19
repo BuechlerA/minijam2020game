@@ -1,19 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://fonts/8-bit-ArcadeIn.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://PhonePanel.gd" type="Script" id=2]
-[ext_resource path="res://instances/PhoneButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://instances/AVATAR.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/phone.png" type="Texture" id=5]
+[ext_resource path="res://instances/BIO.tscn" type="PackedScene" id=1]
+[ext_resource path="res://instances/PhonePanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=6]
-[ext_resource path="res://instances/dynamic_fonts/DF_Info.tres" type="DynamicFont" id=7]
-[ext_resource path="res://instances/dynamic_fonts/DF_Name.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/BG_Test.png" type="Texture" id=9]
 [ext_resource path="res://assets/SPAYSTATION.png" type="Texture" id=10]
-
-[sub_resource type="DynamicFont" id=1]
-size = 25
-font_data = ExtResource( 1 )
 
 [node name="GameManager" type="Control"]
 anchor_right = 1.0
@@ -40,111 +31,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PhonePanel" type="Control" parent="."]
-margin_left = 276.929
-margin_top = 7.0
-margin_right = 460.929
-margin_bottom = 269.0
-script = ExtResource( 2 )
+[node name="PhoneAnimator" type="Control" parent="."]
+margin_left = 289.595
+margin_top = 14.0308
+margin_right = 329.595
+margin_bottom = 54.0308
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScreenColor" type="ColorRect" parent="PhonePanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 6.0
-margin_right = -4.0
-color = Color( 0.752941, 0.752941, 0.752941, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+[node name="PhonePanel" parent="PhoneAnimator" instance=ExtResource( 2 )]
+margin_top = 264.34
+margin_bottom = 526.34
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PhonePanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Tween" type="Tween" parent="PhoneAnimator"]
 
-[node name="MarginContainer" type="MarginContainer" parent="PhonePanel/VBoxContainer"]
-margin_right = 184.0
-margin_bottom = 25.0
-custom_constants/margin_bottom = 25
-
-[node name="AVATAR" parent="PhonePanel/VBoxContainer" instance=ExtResource( 4 )]
-margin_left = 22.0
-margin_top = 29.0
-margin_right = 162.0
-margin_bottom = 169.0
-
-[node name="Label" type="Label" parent="PhonePanel/VBoxContainer"]
-margin_top = 173.0
-margin_right = 184.0
-margin_bottom = 190.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.654902, 0.654902, 0.654902, 1 )
-custom_colors/font_color_shadow = Color( 0.117647, 0.117647, 0.117647, 1 )
-text = "I am cute"
-align = 1
-
-[node name="Buttons" type="HBoxContainer" parent="PhonePanel"]
-margin_left = 13.0
-margin_top = 197.0
-margin_right = 171.0
-margin_bottom = 261.0
-size_flags_vertical = 3
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="YES" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
-margin_left = 22.0
-margin_right = 54.0
-margin_bottom = 32.0
-
-[node name="NO" parent="PhonePanel/Buttons" instance=ExtResource( 3 )]
-margin_left = 103.0
-margin_right = 135.0
-margin_bottom = 32.0
-
-[node name="Phonecase" type="TextureRect" parent="PhonePanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-texture = ExtResource( 5 )
-expand = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="BIO" type="VBoxContainer" parent="."]
+[node name="BIO" parent="." instance=ExtResource( 1 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 13.0
-margin_top = -77.0
-margin_right = 269.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name" type="Label" parent="BIO"]
-margin_right = 256.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 8 )
-custom_colors/font_color = Color( 0.694118, 0.694118, 0.694118, 1 )
-text = "Cutiepie"
-
-[node name="Info" type="Label" parent="BIO"]
-margin_top = 22.0
-margin_right = 256.0
-margin_bottom = 77.0
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.768627, 0.768627, 0.768627, 1 )
-text = "I am not cute"
+margin_left = 25.4712
+margin_top = -60.0
+margin_right = 205.471
+margin_bottom = 0.0

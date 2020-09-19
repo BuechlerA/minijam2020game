@@ -1,6 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://assets/chest_human.png" type="Texture" id=1]
 [ext_resource path="res://scripts/AvatarBehaviour.gd" type="Script" id=2]
+[ext_resource path="res://assets/arm_fire.png" type="Texture" id=3]
+[ext_resource path="res://assets/body_fire.png" type="Texture" id=4]
+[ext_resource path="res://assets/eye_fire.png" type="Texture" id=5]
+[ext_resource path="res://assets/hair_fire.png" type="Texture" id=6]
+[ext_resource path="res://assets/ear_fire.png" type="Texture" id=7]
+[ext_resource path="res://assets/mouth_fire.png" type="Texture" id=8]
+[ext_resource path="res://assets/nose_fire.png" type="Texture" id=9]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -72,75 +80,85 @@ shader_param/blend = 0.0
 shader_param/distortion = 180.0
 
 [node name="AVATAR" type="Control"]
-margin_right = 140.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 140, 140 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
+margin_left = -22.0
+margin_top = -22.0
+margin_right = 163.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 184, 184 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SP_Body" type="TextureRect" parent="."]
-margin_right = 140.0
-margin_bottom = 140.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SP_Torso" type="TextureRect" parent="."]
-margin_right = 140.0
-margin_bottom = 140.0
+[node name="SP_Chest" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SP_Arms" type="TextureRect" parent="."]
-margin_right = 140.0
-margin_bottom = 140.0
+[node name="SP_Arm" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SP_Eyes" type="TextureRect" parent="."]
-margin_right = 140.0
-margin_bottom = 140.0
+[node name="SP_Eye" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SP_Mouth" type="TextureRect" parent="."]
-margin_right = 140.0
-margin_bottom = 140.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SP_Nose" type="TextureRect" parent="."]
-margin_right = 140.0
-margin_bottom = 140.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SP_Hair" type="TextureRect" parent="."]
-margin_right = 140.0
-margin_bottom = 140.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SP_Ear" type="TextureRect" parent="."]
-margin_right = 140.0
-margin_bottom = 140.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false

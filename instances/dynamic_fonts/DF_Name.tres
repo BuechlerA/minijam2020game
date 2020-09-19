@@ -3,6 +3,6 @@
 [ext_resource path="res://fonts/Lightdot-7x6.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 20
+size = 14
 use_mipmaps = true
 font_data = ExtResource( 1 )
