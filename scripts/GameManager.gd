@@ -47,8 +47,9 @@ func _on_confirmed(value):
 		print("DONT LIKE THIS GUY")
 	else:
 		print("LIKE THIS GUY!!!")
+
 func _create_planet():
-	pass
+	$PlanetImage.texture = ($Planet as Viewport).get_texture()
 	
 func _create_alien():
 	var appearance = []
