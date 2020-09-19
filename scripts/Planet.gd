@@ -2,10 +2,9 @@ extends Viewport
 
 onready var mesh = $MeshInstance.mesh
 
-func _ready():
+func generate():
 	randomize()
 	$AnimationPlayer.play("roate")
-	$Position3D/star/AnimationPlayer.play("spinnin")
 	var surf = MeshDataTool.new()
 	surf.create_from_surface(mesh, 0)
 

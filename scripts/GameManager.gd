@@ -87,7 +87,7 @@ func _show_self(showself = false):
 		avatarObject.SET_APPEARANCE(currPartnerAppearance)
 
 func _create_planet():
-	$PlanetImage.texture = ($Planet as Viewport).get_texture()
+	$Window.generate_new_planet()
 	
 func _create_alien():
 	currPartnerAppearance.clear()
