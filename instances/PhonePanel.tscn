@@ -59,14 +59,21 @@ margin_right = 184.0
 margin_bottom = 19.0
 custom_constants/margin_bottom = 19
 
-[node name="AVATAR" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
+[node name="ShowSelf" type="Button" parent="VBoxContainer"]
 margin_top = 23.0
 margin_right = 184.0
-margin_bottom = 207.0
+margin_bottom = 43.0
+text = "Show Myself"
+
+[node name="AVATAR" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 47.0
+margin_right = 184.0
+margin_bottom = 231.0
 size_flags_vertical = 0
 
 [node name="Name" type="Label" parent="VBoxContainer/AVATAR"]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
