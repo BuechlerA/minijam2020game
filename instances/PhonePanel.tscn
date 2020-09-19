@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/C&C Red Alert [INET].ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://instances/AVATAR.tscn" type="PackedScene" id=2]
 [ext_resource path="res://instances/PhoneButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/button_off.png" type="Texture" id=4]
 [ext_resource path="res://PhonePanel.gd" type="Script" id=5]
 [ext_resource path="res://assets/phone.png" type="Texture" id=6]
+[ext_resource path="res://assets/button_yes.png" type="Texture" id=7]
+[ext_resource path="res://assets/button_no.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -94,10 +97,14 @@ __meta__ = {
 [node name="NO" parent="Buttons" instance=ExtResource( 3 )]
 margin_left = 18.0
 margin_right = 58.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 4 )
 
 [node name="YES" parent="Buttons" instance=ExtResource( 3 )]
 margin_left = 99.0
 margin_right = 139.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 4 )
 
 [node name="Phonecase" type="TextureRect" parent="."]
 anchor_right = 1.0
