@@ -50,7 +50,7 @@ func _on_confirmed(value):
 		print("LIKE THIS GUY!!!")
 
 func _create_planet():
-	$PlanetImage.texture = ($Planet as Viewport).get_texture()
+	$Window.generate_new_planet()
 	
 func _create_alien():
 	var appearance = []
