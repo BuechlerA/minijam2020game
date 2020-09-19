@@ -2,7 +2,7 @@ extends Control
 
 
 
-const lib_path = "res://assets/body_parts"
+const lib_path = "res://assets/body_parts/"
 const lib_items ={}
 const part_order = ["SP_Body",
 					"SP_Chest",
