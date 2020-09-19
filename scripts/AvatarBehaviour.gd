@@ -23,7 +23,7 @@ func SET_PART(OBJ, BODY_PART):
 	else:OBJ.hide()
 
 func SET_APPEARANCE(DATA):
-	print("Avatar/SET_APPEARANCE ", DATA)
+	#print("Avatar/SET_APPEARANCE ", DATA)
 	#DATA SHOULD CONTAIN 7 values for a new body
 	#DATA will be created using a dictionary
 	#The dictionary has to be json
