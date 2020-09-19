@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/C&C Red Alert [INET].ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://instances/AVATAR.tscn" type="PackedScene" id=2]
@@ -9,20 +9,6 @@
 [sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.423529, 0.203922, 0.615686, 1 )
-corner_radius_top_left = 19
-corner_radius_top_right = 19
-corner_radius_bottom_right = 19
-corner_radius_bottom_left = 19
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.164706, 0.215686, 0.278431, 1 )
-corner_radius_top_left = 19
-corner_radius_top_right = 19
-corner_radius_bottom_right = 19
-corner_radius_bottom_left = 19
 
 [node name="PhonePanel" type="Control"]
 margin_right = 184.0
@@ -58,14 +44,21 @@ margin_right = 184.0
 margin_bottom = 19.0
 custom_constants/margin_bottom = 19
 
-[node name="AVATAR" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 0.0
+[node name="ShowSelf" type="Button" parent="VBoxContainer"]
 margin_top = 23.0
 margin_right = 184.0
-margin_bottom = 207.0
+margin_bottom = 43.0
+text = "Show Myself"
+
+[node name="AVATAR" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 47.0
+margin_right = 184.0
+margin_bottom = 231.0
 size_flags_vertical = 0
 
 [node name="Name" type="Label" parent="VBoxContainer/AVATAR"]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -93,18 +86,12 @@ __meta__ = {
 }
 
 [node name="NO" parent="Buttons" instance=ExtResource( 3 )]
-margin_left = 29.0
-margin_right = 61.0
-margin_bottom = 32.0
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
+margin_left = 13.0
+margin_right = 77.0
 
 [node name="YES" parent="Buttons" instance=ExtResource( 3 )]
-margin_left = 123.0
-margin_right = 155.0
-margin_bottom = 32.0
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
+margin_left = 107.0
+margin_right = 171.0
 
 [node name="Phonecase" type="TextureRect" parent="."]
 anchor_right = 1.0
