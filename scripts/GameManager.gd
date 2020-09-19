@@ -31,7 +31,7 @@ func _ready():
 	_create_planet()
 	
 	yield(get_tree().create_timer(2.0),"timeout")
-	phone_mover(true,0.5)
+	phone_mover(true,1.15)
 func load_json_file(PATH) -> Dictionary:
 	var file = File.new()
 	if file.file_exists(PATH):
