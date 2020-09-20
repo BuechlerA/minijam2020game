@@ -46,10 +46,11 @@ func generate(element):
 			files.append(file)
 
 	
-	var whichFile = rand_range(0, len(files) - 1)
+	print(element)
+	var whichFile = randi()%len(files)
 	var mmesh = ArrayMesh.new()
 	surf.commit_to_surface(mmesh)
 	mmesh.surface_set_material(0, preload("res://assets/planet_stuff/Planet.tres"))
-	mmesh.surface_get_material(0).albedo_texture = load(files[whichFile])
+	mmesh.surface_get_material(0).albedo_texture = load(path + "/" + files[whichFile])
 	$MeshInstance.mesh = mmesh
 

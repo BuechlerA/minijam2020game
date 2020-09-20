@@ -20,8 +20,8 @@ var planet_traits = {}
 const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
 const ELEMENTALS = ["FIRE","WATER","POISON","ICE","HUMAN"]
 
-onready var planetElement: String = ELEMENTALS[rand_range(0, len(ELEMENTALS) - 1)]
-onready var planetAtmosphere: String = Glob.pallete[rand_range(0, len(Glob.pallete) - 1)]
+var planetElement: String
+var planetAtmosphere: String
 
 var avatarObject
 var phone
@@ -61,6 +61,9 @@ func phone_mover(IN=true, DURATION=1.0):
 	phone_tween.start()
 
 func _ready():
+	randomize()
+	planetElement = ELEMENTALS[randi() % len(ELEMENTALS)]
+	planetAtmosphere = Glob.pallete[randi() % len(Glob.pallete)]
 	time_stamp = OS.get_ticks_msec()
 	phone =  $PhoneAnimator/PhonePanel
 	phone_tween = Tween.new()
