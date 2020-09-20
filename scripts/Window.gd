@@ -1,6 +1,6 @@
 extends Node
 
-var pallete = [ 
+var pallete = [
 	"f1f0ee",
 	"ff4d4d",
 	"9f1e31",
@@ -32,7 +32,15 @@ var pallete = [
 	"412f2f",
 ]
 
-func generate_new_planet():
+var water_pallete = ["33a5ff","3259e2","28237b",]
+var fire_pallete = ["ff4d4d","ffc438","f06c00"]
+var poison_pallete = ["72cb25","238531","0a4b4d"]
+var ice_pallete = ["30c5ad","2f7e83","69deff"]
+var human_pallete = ["c95cd1","6c349d","e55dac"]
+
+func generate_new_planet(PLANET_TYPE):
+	if PLANET_TYPE == null:
+		PLANET_TYPE = human_pallete
 	randomize()
 	var atmostphere = rand_range(0, len(pallete) - 1)
 	var planet: Sprite = $PlanetImage
