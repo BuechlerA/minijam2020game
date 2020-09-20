@@ -1,7 +1,12 @@
 extends Control
-export (String, FILE, "*.json") var path : String
+export (String, FILE, "*.json") var partlibpath : String
+export (String, FILE, "*.json") var domlibpath : String
+export (String, FILE, "*.json") var planetlibpath : String
 
 var library = {}
+var dominanceChart = {}
+var planetlib = {}
+
 const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
 const ELEMENTALS = ["FIRE","WATER","POISON","ICE","HUMAN"]
 
@@ -14,11 +19,17 @@ const phone_vec_in = Vector2(0.0,0.0)
 
 #genetic thingies
 var currPlayerAppearance = []
+var playerTraitDominance = []
 var currPartnerAppearance = [] #current alien traits
 var acceptedDates = [] #array of accepted aliens
 var generationCount #counts generations
 var choiceCount = 0 
 var choiceLimit = 1 #change for difficulty level maybe?
+
+#planetary traits
+const PLANET_PARTS = ["OCEAN","CONTINENT","ATMOSPHERE"]
+const PLANET_ELEMENTALS = ["FIRE","WATER","POISON","ICE","HUMAN"]
+var currPlanetAppearance = []
 
 func phone_mover(IN=true, DURATION=1.0):
 	if IN == true:
@@ -36,15 +47,11 @@ func _ready():
 	phone.connect("CONFIRM",self,"_on_confirmed")
 	phone.connect("SHOWSELF", self,"_show_self")
 	
-	library = load_json_file(path)
+	library = load_json_file(partlibpath)
+	dominanceChart = load_json_file(domlibpath)
+	planetlib = load_json_file(planetlibpath)
 	
-	#this loop creates the player character with human element parts only
-	for i in range(BODY_PARTS.size()):
-		var bodypart = BODY_PARTS[i]
-		var element = ELEMENTALS[4]
-		currPlayerAppearance.append(library.get(element, "null").get(bodypart, "null"))
-	print(currPlayerAppearance)
-	
+	_create_player()
 	#create alien and planet to begin wiht something
 	_create_alien()
 	_create_planet()
@@ -65,20 +72,17 @@ func load_json_file(PATH) -> Dictionary:
 func _on_confirmed(value):
 	if value == false: #no
 		_create_alien()
-		print("DONT LIKE THIS GUY")
+		#print("DONT LIKE THIS GUY")
 	elif value == true:
 		if choiceCount <= choiceLimit:
-			print("LIKE THIS GUY!!!")
+			#print("LIKE THIS GUY!!!")
 			acceptedDates.append(currPartnerAppearance)
-			print("accepted people: ", acceptedDates)
-			choiceCount += 1
-			_create_alien()
-		else:
-			#choice limit reached
-			print("choice limit")
-			#now generate the offspring
+			#print("accepted people: ", acceptedDates)
+#			choiceCount += 1
+#			if choiceCount >= choiceLimit:
 			_generateOffspring()
-			pass
+#			else:
+			_create_alien()
 	
 func _show_self(showself = false):
 	if showself == true:
@@ -86,9 +90,24 @@ func _show_self(showself = false):
 	else:
 		avatarObject.SET_APPEARANCE(currPartnerAppearance)
 
+func _create_player():
+	#this loop creates the player character with human element parts only
+	for i in range(BODY_PARTS.size()):
+		var bodypart = BODY_PARTS[i]
+		var element = ELEMENTALS[4]
+		currPlayerAppearance.append(library.get(element, "null").get(bodypart, "null"))
+	#print(currPlayerAppearance)
+
 func _create_planet():
 	$Window.generate_new_planet()
-	
+	currPlanetAppearance.clear()
+	for i in range(PLANET_PARTS.size()):
+		var part = PLANET_PARTS[i]
+		var element = PLANET_ELEMENTALS[randi() % PLANET_ELEMENTALS.size()]
+		print(part,": ",element)
+		currPlanetAppearance.append(planetlib.get(element).get(part))
+	print(currPlanetAppearance)
+
 func _create_alien():
 	currPartnerAppearance.clear()
 	randomize()
@@ -99,7 +118,28 @@ func _create_alien():
 	avatarObject.SET_APPEARANCE(currPartnerAppearance)
 	
 func _generateOffspring():
-	var nextOffspring
+	var nextOffspring = currPlayerAppearance
+	var randIndex = randi() % BODY_PARTS.size()
+	#part is randomly chosen for now, need to implement to propability chart
+	var randomPart = [randIndex, currPartnerAppearance[randIndex]]
+	print("you got a new ",BODY_PARTS[randIndex])
+	#list the chosen traits and calculate dominance with the amount the trait was chosen
+	playerTraitDominance.append(randomPart[1])
+	#print("trait dominance:", playerTraitDominance)
+#	for i in range(ELEMENTALS.size()):
+#		for j in range(BODY_PARTS.size()):
+#			#print the count of total collected traits in console for debug
+#			print(ELEMENTALS[i]," ",BODY_PARTS[j],": ",playerTraitDominance.count(library.get(ELEMENTALS[i],"null").get(BODY_PARTS[j],"null")))
+	
+#	#apply the next trait on the player
+#	for o in range(ELEMENTALS.size()):
+#		for k in range(BODY_PARTS.size()):
+#			print(dominanceChart.get(ELEMENTALS[o]).get(BODY_PARTS[k]))
+	nextOffspring[randomPart[0]] = randomPart[1]
+#	print("my new self: ",nextOffspring)
 	
 func _scoreGeneration():
+	var score
+	
+	print("current fitness for planet: ", score)
 	pass

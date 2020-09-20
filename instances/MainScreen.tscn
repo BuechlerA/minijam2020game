@@ -13,7 +13,9 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-path = "res://scripts/LIB.json"
+partlibpath = "res://scripts/LIB.json"
+domlibpath = "res://scripts/DOMLIB.json"
+planetlibpath = "res://scripts/PLANETLIB.json"
 
 [node name="Window" parent="." instance=ExtResource( 4 )]
 position = Vector2( 131.102, 82.4069 )
