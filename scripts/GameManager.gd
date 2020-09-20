@@ -44,7 +44,7 @@ const messages = [
 var time_stamp = 0.0
 func phone_mover(IN=true, DURATION=1.0):
 	if IN == true:
-		phone_tween.interpolate_property(phone, "rect_position", phone.rect_position, phone_vec_in, DURATION, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+		phone_tween.interpolate_property(phone, "rect_position", phone.rect_position, phone_vec_in, DURATION, Tween.TRANS_ELASTIC, Tween.EASE_OUT, 0.0)
 	else:
 		phone_tween.interpolate_property(phone, "rect_position", phone.rect_position, phone_vec_out, DURATION, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
 	phone_tween.start()
@@ -66,7 +66,7 @@ func _ready():
 	
 	#slide the phone screen into the scene
 	yield(get_tree().create_timer(2.0),"timeout")
-	phone_mover(true,1.15)
+	phone_mover(true,0.75)
 	
 func load_json_file(PATH) -> Dictionary:
 	var file = File.new()
