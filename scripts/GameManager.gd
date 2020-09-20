@@ -18,8 +18,10 @@ var bodypart_library = {}
 var trait_dominance = {}
 var planet_traits = {}
 const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
-const PLANET_PARTS = ["OCEAN", "CONTINENTS", "ATMOSPHERE"]
 const ELEMENTALS = ["FIRE","WATER","POISON","ICE","HUMAN"]
+
+onready var planetElement: String = ELEMENTALS[rand_range(0, len(ELEMENTALS) - 1)]
+onready var planetAtmosphere: String = Glob.pallete[rand_range(0, len(Glob.pallete) - 1)]
 
 var avatarObject
 var phone
@@ -141,13 +143,7 @@ func _show_self(showself = false):
 			avatarObject.SET_APPEARANCE(currPartnerAppearance)
 
 func _create_planet():
-	var planet_colors = []
-	for i in range(PLANET_PARTS.size()):
-		var element = ELEMENTALS[randi()%ELEMENTALS.size()]
-		print(PLANET_PARTS[i], element)
-		planet_colors.append(planet_traits.get(element, "null").get(PLANET_PARTS[i], "null"))
-	print(planet_colors)
-	$Window.generate_new_planet()
+	$Window.generate_new_planet(planetElement, planetAtmosphere)
 	
 func _create_startcharacter():
 	#this loop creates the player character with human element parts only
@@ -190,6 +186,7 @@ func _generateOffspring():
 	avatarObject.SET_APPEARANCE(currPlayerAppearance)
 
 func _evolution_animation_fancy():
+<<<<<<< Updated upstream
 		var time = (OS.get_ticks_msec() - time_stamp) / 1000.0
 		if time > 0.15:
 			var evo_look = []
@@ -203,6 +200,23 @@ func _evolution_animation_fancy():
 			avatarObject.SET_APPEARANCE(evo_look)
 			time_stamp = OS.get_ticks_msec()
 
+=======
+	var time = (OS.get_ticks_msec() - time_stamp) /1000.0
+	if time > 0.15:
+		var evo_look = []
+		randomize()
+		var part = ""
+		for i in range(BODY_PARTS.size()):
+			var switch = randi() & 1
+			if switch == 0:	
+				part = currPlayerAppearance[i]
+			else:			
+				part = currPartnerAppearance[i]
+			evo_look.append(part)
+		avatarObject.SET_APPEARANCE(evo_look)
+		time_stamp = OS.get_ticks_msec()
+		
+>>>>>>> Stashed changes
 func _process(delta):
 	match currentState:
 		RESTART:

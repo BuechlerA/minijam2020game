@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/scribdd.png-d450d0f6dbd88abb2df1b3e4e5ac38f7.s3tc.stex"
-path.etc2="res://.import/scribdd.png-d450d0f6dbd88abb2df1b3e4e5ac38f7.etc2.stex"
+path.s3tc="res://.import/poisonPlanet.png-3de1a7cb213597db3821d837e4f3ad95.s3tc.stex"
+path.etc2="res://.import/poisonPlanet.png-3de1a7cb213597db3821d837e4f3ad95.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/planet_stuff/planetpallets/scribdd.png"
-dest_files=[ "res://.import/scribdd.png-d450d0f6dbd88abb2df1b3e4e5ac38f7.s3tc.stex", "res://.import/scribdd.png-d450d0f6dbd88abb2df1b3e4e5ac38f7.etc2.stex" ]
+source_file="res://assets/planet_stuff/planetpallets/POISON/poisonPlanet.png"
+dest_files=[ "res://.import/poisonPlanet.png-3de1a7cb213597db3821d837e4f3ad95.s3tc.stex", "res://.import/poisonPlanet.png-3de1a7cb213597db3821d837e4f3ad95.etc2.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=false
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=1
 process/fix_alpha_border=true

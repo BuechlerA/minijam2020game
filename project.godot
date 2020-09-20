@@ -19,6 +19,10 @@ config/name="minijam2020game"
 run/main_scene="res://instances/Title.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Glob="*res://Glob.gd"
+
 [display]
 
 window/size/width=480

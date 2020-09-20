@@ -2,7 +2,7 @@ extends Viewport
 
 onready var mesh = $MeshInstance.mesh
 
-func generate():
+func generate(element):
 	randomize()
 	$AnimationPlayer.play("roate")
 	var surf = MeshDataTool.new()
@@ -31,30 +31,9 @@ func generate():
 			var uv = Vector2(dist_normalized, 0)
 			surf.set_vertex_uv(i, uv)
 
-	for i in range(surf.get_face_count()):	
-		var v1i = surf.get_face_vertex(i,0)
-		var v2i = surf.get_face_vertex(i,1)
-		var v3i = surf.get_face_vertex(i,2)
-		
-		var v1 = surf.get_vertex(v1i)
-		var v2 = surf.get_vertex(v2i)
-		var v3 = surf.get_vertex(v3i)
-		
-		var u = v2 - v1
-		var v = v3 - v1
-		var normal = Vector3(
-			u.y * v.z - u.z * v.y,
-			u.z * v.x - u.x * v.z,
-			u.x * v.z - u.z * v.x
-		).normalized()
-		
-		surf.set_vertex_normal(v1i, normal)
-		surf.set_vertex_normal(v2i, normal)
-		surf.set_vertex_normal(v3i, normal)
-
 	var files = []
 	var dir = Directory.new()
-	var path = "res://assets/planet_stuff/planetpallets" 
+	var path = "res://assets/planet_stuff/planetpallets/" + element 
 	dir.open(path)
 	dir.list_dir_begin()
 
@@ -67,10 +46,10 @@ func generate():
 			files.append(file)
 
 	
-	var pallete = rand_range(0, len(files) - 1)
+	var whichFile = rand_range(0, len(files) - 1)
 	var mmesh = ArrayMesh.new()
 	surf.commit_to_surface(mmesh)
 	mmesh.surface_set_material(0, preload("res://assets/planet_stuff/Planet.tres"))
-	mmesh.surface_get_material(0).albedo_texture = load(path + "/" + files[pallete])
+	mmesh.surface_get_material(0).albedo_texture = load(files[whichFile])
 	$MeshInstance.mesh = mmesh
 
