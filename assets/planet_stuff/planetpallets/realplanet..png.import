@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/poisonPlanet.png-2156b5775373001e8d1716138a67e2ab.s3tc.stex"
-path.etc2="res://.import/poisonPlanet.png-2156b5775373001e8d1716138a67e2ab.etc2.stex"
+path.s3tc="res://.import/realplanet..png-4df1d6ae99be50d58fe833a72e1393ef.s3tc.stex"
+path.etc2="res://.import/realplanet..png-4df1d6ae99be50d58fe833a72e1393ef.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/planet_stuff/poisonPlanet.png"
-dest_files=[ "res://.import/poisonPlanet.png-2156b5775373001e8d1716138a67e2ab.s3tc.stex", "res://.import/poisonPlanet.png-2156b5775373001e8d1716138a67e2ab.etc2.stex" ]
+source_file="res://assets/planet_stuff/planetpallets/realplanet..png"
+dest_files=[ "res://.import/realplanet..png-4df1d6ae99be50d58fe833a72e1393ef.s3tc.stex", "res://.import/realplanet..png-4df1d6ae99be50d58fe833a72e1393ef.etc2.stex" ]
 
 [params]
 

@@ -52,8 +52,25 @@ func generate():
 		surf.set_vertex_normal(v2i, normal)
 		surf.set_vertex_normal(v3i, normal)
 
+	var files = []
+	var dir = Directory.new()
+	var path = "res://assets/planet_stuff/planetpallets" 
+	dir.open(path)
+	dir.list_dir_begin()
+
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+
+		if file.ends_with("png"):
+			files.append(file)
+
+	
+	var pallete = rand_range(0, len(files) - 1)
 	var mmesh = ArrayMesh.new()
 	surf.commit_to_surface(mmesh)
 	mmesh.surface_set_material(0, preload("res://assets/planet_stuff/Planet.tres"))
+	mmesh.surface_get_material(0).albedo_texture = load(path + "/" + files[pallete])
 	$MeshInstance.mesh = mmesh
 

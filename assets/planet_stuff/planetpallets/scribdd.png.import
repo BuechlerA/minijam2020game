@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/scribdd.png-3e0833b452ef221db51885abc76f1ca2.s3tc.stex"
-path.etc2="res://.import/scribdd.png-3e0833b452ef221db51885abc76f1ca2.etc2.stex"
+path.s3tc="res://.import/scribdd.png-d450d0f6dbd88abb2df1b3e4e5ac38f7.s3tc.stex"
+path.etc2="res://.import/scribdd.png-d450d0f6dbd88abb2df1b3e4e5ac38f7.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/planet_stuff/scribdd.png"
-dest_files=[ "res://.import/scribdd.png-3e0833b452ef221db51885abc76f1ca2.s3tc.stex", "res://.import/scribdd.png-3e0833b452ef221db51885abc76f1ca2.etc2.stex" ]
+source_file="res://assets/planet_stuff/planetpallets/scribdd.png"
+dest_files=[ "res://.import/scribdd.png-d450d0f6dbd88abb2df1b3e4e5ac38f7.s3tc.stex", "res://.import/scribdd.png-d450d0f6dbd88abb2df1b3e4e5ac38f7.etc2.stex" ]
 
 [params]
 

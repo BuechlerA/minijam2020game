@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/idfk.png-b3350f9b306f64d6b7a6cf08154bafba.s3tc.stex"
-path.etc2="res://.import/idfk.png-b3350f9b306f64d6b7a6cf08154bafba.etc2.stex"
+path.s3tc="res://.import/ice_planet.png-13f1519a3df6ce7560d1fa7c9f3803e4.s3tc.stex"
+path.etc2="res://.import/ice_planet.png-13f1519a3df6ce7560d1fa7c9f3803e4.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/planet_stuff/idfk.png"
-dest_files=[ "res://.import/idfk.png-b3350f9b306f64d6b7a6cf08154bafba.s3tc.stex", "res://.import/idfk.png-b3350f9b306f64d6b7a6cf08154bafba.etc2.stex" ]
+source_file="res://assets/planet_stuff/planetpallets/ice_planet.png"
+dest_files=[ "res://.import/ice_planet.png-13f1519a3df6ce7560d1fa7c9f3803e4.s3tc.stex", "res://.import/ice_planet.png-13f1519a3df6ce7560d1fa7c9f3803e4.etc2.stex" ]
 
 [params]
 
