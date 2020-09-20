@@ -2,7 +2,7 @@ extends Control
 export (String, FILE, "*.json") var path : String
 
 enum {
-	INIT,
+	RESTART,
 	CHOOSE,
 	RESULT,
 	PARTNER_DISPLAY,
@@ -10,7 +10,7 @@ enum {
 	RESET
 }
 
-var st = INIT
+var st = RESTART
 
 var library = {}
 const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
@@ -63,6 +63,12 @@ func _ready():
 	
 	#create alien and planet to begin wiht something
 	avatarObject.hide()
+
+	_create_startcharacter()
+	_create_alien()
+	_create_planet()
+	avatarObject.show()
+	st = CHOOSE
 	
 	#slide the phone screen into the scene
 	yield(get_tree().create_timer(2.0),"timeout")
@@ -172,7 +178,7 @@ func _evolution_animation_fancy():
 		
 func _process(delta):
 	match st:
-		INIT:
+		RESTART:
 			_create_startcharacter()
 			_create_alien()
 			_create_planet()
