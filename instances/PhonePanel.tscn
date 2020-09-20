@@ -103,6 +103,7 @@ custom_colors/font_color_shadow = Color( 0.945098, 0.941176, 0.933333, 1 )
 text = "I LIKE YOU "
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

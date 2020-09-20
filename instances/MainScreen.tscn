@@ -14,6 +14,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 libpath = "res://scripts/LIB.json"
+planetpath = "res://scripts/PLANETLIB.json"
+dominancepath = "res://scripts/DOMINANCELIB.json"
 
 [node name="Window" parent="." instance=ExtResource( 4 )]
 position = Vector2( 131.102, 82.4069 )

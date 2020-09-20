@@ -12,12 +12,12 @@ enum {
 	RESET
 }
 
-var st = RESTART
+var currentState = RESTART
 
 var bodypart_library = {}
 var trait_dominance = {}
-const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
 var planet_traits = {}
+const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
 const PLANET_PARTS = ["OCEAN", "CONTINENTS", "ATMOSPHERE"]
 const ELEMENTALS = ["FIRE","WATER","POISON","ICE","HUMAN"]
 
@@ -27,6 +27,9 @@ var phone_tween
 
 const phone_vec_out = Vector2(0.0,264.34)
 const phone_vec_in = Vector2(0.0,0.0)
+
+#planet attributes
+var currPlanetAppearance = []
 
 #genetic thingies
 var currPlayerAppearance = []
@@ -71,12 +74,13 @@ func _ready():
 	
 	#create alien and planet to begin wiht something
 	avatarObject.hide()
-
 	_create_startcharacter()
 	_create_alien()
 	_create_planet()
 	avatarObject.show()
-	st = CHOOSE
+	
+	#initate states
+	currentState = CHOOSE
 	
 	#slide the phone screen into the scene
 	yield(get_tree().create_timer(2.0),"timeout")
@@ -92,7 +96,7 @@ func load_json_file(PATH) -> Dictionary:
 		return {}
 
 func _on_confirmed(value):
-	if st == CHOOSE:
+	if currentState == CHOOSE:
 		if value == false: #no
 			_create_alien()
 			print("SKIP, NEXT PLEASE")
@@ -108,33 +112,38 @@ func _on_confirmed(value):
 				print("reached choice limit")
 				print("accepted people: ", acceptedDates)
 				phone.BUTTON_VISIBLE("NO",false)
-				st = RESULT
+				currentState = RESULT
 				
-	elif st == RESULT: #any button press
-		st = PARTNER_DISPLAY
+	elif currentState == RESULT: #any button press
+		currentState = PARTNER_DISPLAY
 		
-	elif st == PARTNER_DISPLAY:
+	elif currentState == PARTNER_DISPLAY:
 		randomize()
 		_only_one_wins()
 		phone.SET_MESSAGE( "Adam :" + messages[randi()%messages.size()]  )
 		_generateOffspring()
-		st = PARTNER_COMBINE
+		currentState = PARTNER_COMBINE
 		
-	elif st == PARTNER_COMBINE:
+	elif currentState == PARTNER_COMBINE:
 		#run evolution animation
-		#if animation ended, st to RESET
+		#if animation ended, currentState to RESET
 		phone.SET_MESSAGE( "This is your new baby")
-
 		#set main avatar to baby
 
 func _show_self(showself = false):
-	if st != PARTNER_COMBINE:
+	if currentState != PARTNER_COMBINE:
 		if showself == true:
 			avatarObject.SET_APPEARANCE(currPlayerAppearance)
 		else:
 			avatarObject.SET_APPEARANCE(currPartnerAppearance)
 
 func _create_planet():
+	var planet_colors = []
+	for i in range(PLANET_PARTS.size()):
+		var element = ELEMENTALS[randi()%ELEMENTALS.size()]
+		print(PLANET_PARTS[i], element)
+		planet_colors.append(planet_traits.get(element, "null").get(PLANET_PARTS[i], "null"))
+	print(planet_colors)
 	$Window.generate_new_planet()
 	
 func _create_startcharacter():
@@ -158,7 +167,10 @@ func _create_alien():
 func _only_one_wins():
 	var lucky_index = randi()%acceptedDates.size()
 	currPartnerAppearance = acceptedDates[lucky_index]
-	st = PARTNER_DISPLAY
+	currentState = PARTNER_DISPLAY
+func _show_match():
+	avatarObject.SET_APPEARANCE(currPartnerAppearance)
+	print("your match: ", currPartnerAppearance)
 	
 func _generateOffspring():
 	for i in range(BODY_PARTS.size()): #body parts in order
@@ -167,31 +179,30 @@ func _generateOffspring():
 		
 		#get success rate, compare
 		#pick between her part vs my_part
-
 	pass
 
 func _evolution_animation_fancy():
-	var time = (OS.get_ticks_msec() - time_stamp) /1000.0
-	if time > 0.15:
-		var evo_look = []
-		randomize()
-		var part = ""
-		for i in range(BODY_PARTS.size()):
-			var switch = randi() & 1
-			if switch == 0:	part= currPlayerAppearance[i]
-			else:			part= currPartnerAppearance[i]
-			evo_look.append(part)
-		avatarObject.SET_APPEARANCE(evo_look)
-		time_stamp = OS.get_ticks_msec()
-		
+		var time = (OS.get_ticks_msec() - time_stamp) /1000.0
+		if time > 0.15:
+			var evo_look = []
+			randomize()
+			var part = ""
+			for i in range(BODY_PARTS.size()):
+				var switch = randi() & 1
+				if switch == 0:	part= currPlayerAppearance[i]
+				else:			part= currPartnerAppearance[i]
+				evo_look.append(part)
+			avatarObject.SET_APPEARANCE(evo_look)
+			time_stamp = OS.get_ticks_msec()
+
 func _process(delta):
-	match st:
+	match currentState:
 		RESTART:
 			_create_startcharacter()
 			_create_alien()
 			_create_planet()
 			avatarObject.show()
-			st = CHOOSE
+			currentState = CHOOSE
 		CHOOSE:
 			#let player choose things here, this state calculates nothing
 			pass
@@ -200,12 +211,12 @@ func _process(delta):
 			pass
 		PARTNER_DISPLAY:
 			#this guy likes you
+			_show_match()
 			pass
 		PARTNER_COMBINE:
 			#sexy time
 			#blink avatars!!!!!!!!
 			_evolution_animation_fancy()
-			
 			pass
 		RESET:
 			#this is your baby aka your new player
