@@ -40,6 +40,8 @@ const messages = [
 "Be cute!",
 "Stay still"
 ]
+
+var time_stamp = 0.0
 func phone_mover(IN=true, DURATION=1.0):
 	if IN == true:
 		phone_tween.interpolate_property(phone, "rect_position", phone.rect_position, phone_vec_in, DURATION, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
@@ -48,6 +50,7 @@ func phone_mover(IN=true, DURATION=1.0):
 	phone_tween.start()
 
 func _ready():
+	time_stamp = OS.get_ticks_msec()
 	phone =  $PhoneAnimator/PhonePanel
 	phone_tween = Tween.new()
 	phone.add_child(phone_tween)
@@ -100,20 +103,22 @@ func _on_confirmed(value):
 		randomize()
 		_only_one_wins()
 		phone.SET_MESSAGE( "Adam :" + messages[randi()%messages.size()]  )
+		_generateOffspring()
 		st = PARTNER_COMBINE
 		
 	elif st == PARTNER_COMBINE:
-		_generateOffspring()
 		#run evolution animation
 		#if animation ended, st to RESET
 		phone.SET_MESSAGE( "This is your new baby")
+
 		#set main avatar to baby
 
 func _show_self(showself = false):
-	if showself == true:
-		avatarObject.SET_APPEARANCE(currPlayerAppearance)
-	else:
-		avatarObject.SET_APPEARANCE(currPartnerAppearance)
+	if st != PARTNER_COMBINE:
+		if showself == true:
+			avatarObject.SET_APPEARANCE(currPlayerAppearance)
+		else:
+			avatarObject.SET_APPEARANCE(currPartnerAppearance)
 
 func _create_planet():
 	$Window.generate_new_planet()
@@ -148,10 +153,24 @@ func _generateOffspring():
 		
 		#get success rate, compare
 		#pick between her part vs my_part
+
 	pass
-	
-	
-func _process(_delta):
+
+func _evolution_animation_fancy():
+	var time = (OS.get_ticks_msec() - time_stamp) /1000.0
+	if time > 0.15:
+		var evo_look = []
+		randomize()
+		var part = ""
+		for i in range(BODY_PARTS.size()):
+			var switch = randi() & 1
+			if switch == 0:	part= currPlayerAppearance[i]
+			else:			part= currPartnerAppearance[i]
+			evo_look.append(part)
+		avatarObject.SET_APPEARANCE(evo_look)
+		time_stamp = OS.get_ticks_msec()
+		
+func _process(delta):
 	match st:
 		INIT:
 			_create_startcharacter()
@@ -171,7 +190,8 @@ func _process(_delta):
 		PARTNER_COMBINE:
 			#sexy time
 			#blink avatars!!!!!!!!
-			_generateOffspring()
+			_evolution_animation_fancy()
+			
 			pass
 		RESET:
 			#this is your baby aka your new player
