@@ -5,7 +5,7 @@ enum {
 	INIT,
 	CHOOSE,
 	RESULT,
-	PARTNER_CHOICE,
+	PARTNER_DISPLAY,
 	PARTNER_COMBINE,
 	RESET
 }
@@ -31,8 +31,15 @@ var acceptedDates = [] #array of accepted aliens
 var generationCount = 0 #counts generations
 
 var choiceCount = 0 
-var choiceLimit = 8 #change for difficulty level maybe?
+var choiceLimit = 12 #change for difficulty level maybe?
 
+const messages = [
+"I like you",
+"I love you",
+"Let´s do something",
+"Be cute!",
+"Stay still"
+]
 func phone_mover(IN=true, DURATION=1.0):
 	if IN == true:
 		phone_tween.interpolate_property(phone, "rect_position", phone.rect_position, phone_vec_in, DURATION, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
@@ -50,9 +57,6 @@ func _ready():
 	phone.connect("SHOWSELF", self,"_show_self")
 	
 	library = load_json_file(path)
-	
-	
-
 	
 	#create alien and planet to begin wiht something
 	avatarObject.hide()
@@ -74,7 +78,7 @@ func _on_confirmed(value):
 	if st == CHOOSE:
 		if value == false: #no
 			_create_alien()
-			print("DONT LIKE THIS GUY")
+			print("SKIP, NEXT PLEASE")
 		elif value == true:
 			if choiceCount < choiceLimit:
 				print("LIKE THIS GUY!!!")
@@ -87,7 +91,10 @@ func _on_confirmed(value):
 				print("reached choice limit")
 				print("accepted people: ", acceptedDates)
 				#now generate the offspring
-				st = PARTNER_CHOICE
+				phone.BUTTON_VISIBLE("NO",false)
+				randomize()
+				phone.SET_MESSAGE( messages[randi()%messages.size()]  )
+				st = RESULT
 				pass
 	
 func _show_self(showself = false):
@@ -117,10 +124,18 @@ func _create_alien():
 		currPartnerAppearance.append(library.get(element, "null").get(part, "null"))
 	avatarObject.SET_APPEARANCE(currPartnerAppearance)
 	
-func _generateOffspring():
-	#get success rate
-	#iterate current parts + target parts
+func _only_one_wins():
+	var lucky_index = randi()%acceptedDates.size()
+	currPartnerAppearance = acceptedDates[lucky_index]
+	st = PARTNER_DISPLAY
 	
+func _generateOffspring():
+	for i in range(BODY_PARTS.size()): #body parts in order
+		var my_part = currPlayerAppearance[i]
+		var her_part = currPartnerAppearance[i]
+		
+		#get success rate, compare
+		#pick between her part vs my_part
 	pass
 	
 	
@@ -138,12 +153,15 @@ func _process(_delta):
 		RESULT:
 			#show text: You like xxx people
 			pass
-		PARTNER_CHOICE:
+		PARTNER_DISPLAY:
 			#this guy likes you
 			pass
 		PARTNER_COMBINE:
+			#sexy time
+			#blink avatars!!!!!!!!
 			_generateOffspring()
 			pass
 		RESET:
 			#this is your baby aka your new player
+			#congratulations
 			pass
