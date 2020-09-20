@@ -86,7 +86,6 @@ margin_top = 37.0
 margin_right = 92.0
 margin_bottom = 221.0
 rect_min_size = Vector2( 184, 184 )
-size_flags_vertical = 0
 
 [node name="Name" type="Label" parent="AVATAR"]
 visible = false
