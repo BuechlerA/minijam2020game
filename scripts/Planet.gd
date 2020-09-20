@@ -8,7 +8,7 @@ func generate():
 	var surf = MeshDataTool.new()
 	surf.create_from_surface(mesh, 0)
 
-	for j in range(200):
+	for _j in range(200):
 		var dir = Vector3(rand_range(-1, 1), rand_range(-1, 1), rand_range(-1, 1)).normalized()
 
 		for i in range(surf.get_vertex_count()):

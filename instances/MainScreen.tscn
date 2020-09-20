@@ -187,8 +187,6 @@ __meta__ = {
 margin_top = 264.34
 margin_bottom = 526.34
 
-[node name="Tween" type="Tween" parent="PhoneAnimator"]
-
 [editable path="EasterEggs/Doll"]
 
 [editable path="EasterEggs/Robot"]
