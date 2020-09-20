@@ -26,22 +26,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PhoneAnimator" type="Control" parent="."]
-margin_left = 289.595
-margin_top = 14.0308
-margin_right = 329.595
-margin_bottom = 54.0308
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="PhonePanel" parent="PhoneAnimator" instance=ExtResource( 2 )]
-margin_top = 264.34
-margin_bottom = 526.34
-
-[node name="Tween" type="Tween" parent="PhoneAnimator"]
-
 [node name="EasterEggs" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -186,6 +170,22 @@ margin_bottom = -16.6422
 text = "E.T. was good,
 okay!"
 align = 1
+
+[node name="PhoneAnimator" type="Control" parent="."]
+margin_left = 289.595
+margin_top = 14.0308
+margin_right = 329.595
+margin_bottom = 54.0308
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PhonePanel" parent="PhoneAnimator" instance=ExtResource( 2 )]
+margin_top = 264.34
+margin_bottom = 526.34
+
+[node name="Tween" type="Tween" parent="PhoneAnimator"]
 
 [editable path="EasterEggs/Doll"]
 
