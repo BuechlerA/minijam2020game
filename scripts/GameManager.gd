@@ -4,9 +4,9 @@ export (String, FILE, "*.json") var path : String
 enum {
 	INIT,
 	CHOOSE,
+	RESULT,
 	PARTNER_CHOICE,
 	PARTNER_COMBINE,
-	RESULT,
 	RESET
 }
 
@@ -26,8 +26,10 @@ const phone_vec_in = Vector2(0.0,0.0)
 #genetic thingies
 var currPlayerAppearance = []
 var currPartnerAppearance = [] #current alien traits
+
 var acceptedDates = [] #array of accepted aliens
-var generationCount #counts generations
+var generationCount = 0 #counts generations
+
 var choiceCount = 0 
 var choiceLimit = 8 #change for difficulty level maybe?
 
@@ -74,18 +76,18 @@ func _on_confirmed(value):
 			_create_alien()
 			print("DONT LIKE THIS GUY")
 		elif value == true:
-			if choiceCount <= choiceLimit:
+			if choiceCount < choiceLimit:
 				print("LIKE THIS GUY!!!")
 				acceptedDates.append(currPartnerAppearance)
-				print("accepted people: ", acceptedDates)
 				phone.add_selected_guy( currPartnerAppearance )
 				choiceCount += 1
 				_create_alien()
 			else:
 				#choice limit reached
-				print("choice limit")
+				print("reached choice limit")
+				print("accepted people: ", acceptedDates)
 				#now generate the offspring
-				_generateOffspring()
+				st = PARTNER_CHOICE
 				pass
 	
 func _show_self(showself = false):
@@ -116,12 +118,13 @@ func _create_alien():
 	avatarObject.SET_APPEARANCE(currPartnerAppearance)
 	
 func _generateOffspring():
-	var nextOffspring
+	#get success rate
+	#iterate current parts + target parts
 	
-func _scoreGeneration():
 	pass
 	
-func _process(delta):
+	
+func _process(_delta):
 	match st:
 		INIT:
 			_create_startcharacter()
@@ -130,13 +133,17 @@ func _process(delta):
 			avatarObject.show()
 			st = CHOOSE
 		CHOOSE:
-			pass
-		PARTNER_CHOICE:
-			pass
-		PARTNER_COMBINE:
+			#let player choose things here, this state calculates nothing
 			pass
 		RESULT:
+			#show text: You like xxx people
+			pass
+		PARTNER_CHOICE:
+			#this guy likes you
+			pass
+		PARTNER_COMBINE:
+			_generateOffspring()
 			pass
 		RESET:
+			#this is your baby aka your new player
 			pass
-		
