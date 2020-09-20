@@ -1,6 +1,17 @@
 extends Control
 export (String, FILE, "*.json") var path : String
 
+enum {
+	INIT,
+	CHOOSE,
+	PARTNER_CHOICE,
+	PARTNER_COMBINE,
+	RESULT,
+	RESET
+}
+
+var st = INIT
+
 var library = {}
 const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
 const ELEMENTALS = ["FIRE","WATER","POISON","ICE","HUMAN"]
@@ -18,7 +29,7 @@ var currPartnerAppearance = [] #current alien traits
 var acceptedDates = [] #array of accepted aliens
 var generationCount #counts generations
 var choiceCount = 0 
-var choiceLimit = 1 #change for difficulty level maybe?
+var choiceLimit = 8 #change for difficulty level maybe?
 
 func phone_mover(IN=true, DURATION=1.0):
 	if IN == true:
@@ -32,22 +43,17 @@ func _ready():
 	phone_tween = Tween.new()
 	phone.add_child(phone_tween)
 	
-	avatarObject = phone.get_node("VBoxContainer/AVATAR")
+	avatarObject = phone.get_node("AVATAR")
 	phone.connect("CONFIRM",self,"_on_confirmed")
 	phone.connect("SHOWSELF", self,"_show_self")
 	
 	library = load_json_file(path)
 	
-	#this loop creates the player character with human element parts only
-	for i in range(BODY_PARTS.size()):
-		var bodypart = BODY_PARTS[i]
-		var element = ELEMENTALS[4]
-		currPlayerAppearance.append(library.get(element, "null").get(bodypart, "null"))
-	print(currPlayerAppearance)
+	
+
 	
 	#create alien and planet to begin wiht something
-	_create_alien()
-	_create_planet()
+	avatarObject.hide()
 	
 	#slide the phone screen into the scene
 	yield(get_tree().create_timer(2.0),"timeout")
@@ -63,22 +69,24 @@ func load_json_file(PATH) -> Dictionary:
 		return {}
 
 func _on_confirmed(value):
-	if value == false: #no
-		_create_alien()
-		print("DONT LIKE THIS GUY")
-	elif value == true:
-		if choiceCount <= choiceLimit:
-			print("LIKE THIS GUY!!!")
-			acceptedDates.append(currPartnerAppearance)
-			print("accepted people: ", acceptedDates)
-			choiceCount += 1
+	if st == CHOOSE:
+		if value == false: #no
 			_create_alien()
-		else:
-			#choice limit reached
-			print("choice limit")
-			#now generate the offspring
-			_generateOffspring()
-			pass
+			print("DONT LIKE THIS GUY")
+		elif value == true:
+			if choiceCount <= choiceLimit:
+				print("LIKE THIS GUY!!!")
+				acceptedDates.append(currPartnerAppearance)
+				print("accepted people: ", acceptedDates)
+				phone.add_selected_guy( currPartnerAppearance )
+				choiceCount += 1
+				_create_alien()
+			else:
+				#choice limit reached
+				print("choice limit")
+				#now generate the offspring
+				_generateOffspring()
+				pass
 	
 func _show_self(showself = false):
 	if showself == true:
@@ -88,6 +96,15 @@ func _show_self(showself = false):
 
 func _create_planet():
 	$Window.generate_new_planet()
+	
+func _create_startcharacter():
+	#this loop creates the player character with human element parts only
+	#ignore this operation as a character has been already created
+	for i in range(BODY_PARTS.size()):
+		var bodypart = BODY_PARTS[i]
+		var element = ELEMENTALS[4]
+		currPlayerAppearance.append(library.get(element, "null").get(bodypart, "null"))
+	print(currPlayerAppearance)
 	
 func _create_alien():
 	currPartnerAppearance.clear()
@@ -103,3 +120,23 @@ func _generateOffspring():
 	
 func _scoreGeneration():
 	pass
+	
+func _process(delta):
+	match st:
+		INIT:
+			_create_startcharacter()
+			_create_alien()
+			_create_planet()
+			avatarObject.show()
+			st = CHOOSE
+		CHOOSE:
+			pass
+		PARTNER_CHOICE:
+			pass
+		PARTNER_COMBINE:
+			pass
+		RESULT:
+			pass
+		RESET:
+			pass
+		
