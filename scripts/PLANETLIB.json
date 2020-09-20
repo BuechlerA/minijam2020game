@@ -1,0 +1,32 @@
+{
+    "WATER": {
+        "KEY": "WATER",
+        "OCEAN": "BLUE",
+        "CONTINENT": "BLUE",
+        "ATMOSPHERE": "BLUE"
+    },
+    "FIRE": {
+        "KEY": "FIRE",
+        "OCEAN": "RED",
+        "CONTINENT": "RED",
+        "ATMOSPHERE": "RED"
+    },
+    "POISON": {
+        "KEY": "POISON",
+        "OCEAN": "GREEN",
+        "CONTINENT": "GREEN",
+        "ATMOSPHERE": "GREEN"
+    },
+    "ICE": {
+        "KEY": "ICE",
+        "OCEAN": "WHITE",
+        "CONTINENT": "WHITE",
+        "ATMOSPHERE": "WHITE"
+    },
+    "HUMAN": {
+        "KEY": "HUMAN",
+        "OCEAN": "PINK",
+        "CONTINENT": "PINK",
+        "ATMOSPHERE": "PINK"
+    }
+}

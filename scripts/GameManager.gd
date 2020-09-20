@@ -1,5 +1,7 @@
 extends Control
-export (String, FILE, "*.json") var path : String
+export (String, FILE, "*.json") var libpath : String
+export (String, FILE, "*.json") var planetpath : String
+export (String, FILE, "*.json") var dominancepath : String
 
 enum {
 	RESTART,
@@ -12,8 +14,11 @@ enum {
 
 var st = RESTART
 
-var library = {}
+var bodypart_library = {}
+var trait_dominance = {}
 const BODY_PARTS = ["BODY","CHEST", "ARM","EYE","MOUTH","NOSE","HAIR", "EAR"]
+var planet_traits = {}
+const PLANET_PARTS = ["OCEAN", "CONTINENTS", "ATMOSPHERE"]
 const ELEMENTALS = ["FIRE","WATER","POISON","ICE","HUMAN"]
 
 var avatarObject
@@ -59,7 +64,10 @@ func _ready():
 	phone.connect("CONFIRM",self,"_on_confirmed")
 	phone.connect("SHOWSELF", self,"_show_self")
 	
-	library = load_json_file(path)
+	#assign the loaded json files to dictionaries
+	bodypart_library = load_json_file(libpath)
+	planet_traits = load_json_file(planetpath)
+	trait_dominance = load_json_file(dominancepath)
 	
 	#create alien and planet to begin wiht something
 	avatarObject.hide()
@@ -135,7 +143,7 @@ func _create_startcharacter():
 	for i in range(BODY_PARTS.size()):
 		var bodypart = BODY_PARTS[i]
 		var element = ELEMENTALS[4]
-		currPlayerAppearance.append(library.get(element, "null").get(bodypart, "null"))
+		currPlayerAppearance.append(bodypart_library.get(element, "null").get(bodypart, "null"))
 	print(currPlayerAppearance)
 	
 func _create_alien():
@@ -144,7 +152,7 @@ func _create_alien():
 	for index in range(BODY_PARTS.size()):
 		var part = BODY_PARTS[index]
 		var element = ELEMENTALS[randi()%ELEMENTALS.size()]
-		currPartnerAppearance.append(library.get(element, "null").get(part, "null"))
+		currPartnerAppearance.append(bodypart_library.get(element, "null").get(part, "null"))
 	avatarObject.SET_APPEARANCE(currPartnerAppearance)
 	
 func _only_one_wins():
