@@ -34,6 +34,7 @@ var currPlanetAppearance = []
 #genetic thingies
 var currPlayerAppearance = []
 var currPartnerAppearance = [] #current alien traits
+var offspringAppearance = [] #baby traits
 
 var acceptedDates = [] #array of accepted aliens
 var generationCount = 0 #counts generations
@@ -100,17 +101,17 @@ func _on_confirmed(value):
 		if value == false: #no
 			_create_alien()
 			print("SKIP, NEXT PLEASE")
-		elif value == true:
+		elif value == true: #yes
 			if choiceCount < choiceLimit:
-				print("LIKE THIS GUY!!!")
+				#print("LIKE THIS GUY!!!")
 				acceptedDates.append(currPartnerAppearance)
-				phone.add_selected_guy( currPartnerAppearance )
+				phone.add_selected_guy(currPartnerAppearance)
 				choiceCount += 1
 				_create_alien()
 			else:
 				#choice limit reached
 				print("reached choice limit")
-				print("accepted people: ", acceptedDates)
+				#print("accepted people: ", acceptedDates)
 				phone.BUTTON_VISIBLE("NO",false)
 				currentState = RESULT
 				
@@ -120,7 +121,8 @@ func _on_confirmed(value):
 	elif currentState == PARTNER_DISPLAY:
 		randomize()
 		_only_one_wins()
-		phone.SET_MESSAGE( "Adam :" + messages[randi()%messages.size()]  )
+		#phone.SET_MESSAGE( "Adam :" + messages[randi()%messages.size()]  )
+		phone.SET_MESSAGE( "IT'S A MATCH!" )
 		_generateOffspring()
 		currentState = PARTNER_COMBINE
 		
@@ -129,6 +131,7 @@ func _on_confirmed(value):
 		#if animation ended, currentState to RESET
 		phone.SET_MESSAGE( "This is your new baby")
 		#set main avatar to baby
+		
 
 func _show_self(showself = false):
 	if currentState != PARTNER_COMBINE:
@@ -166,23 +169,28 @@ func _create_alien():
 	
 func _only_one_wins():
 	var lucky_index = randi()%acceptedDates.size()
-	currPartnerAppearance = acceptedDates[lucky_index]
+	print(lucky_index)
+	#currPartnerAppearance = acceptedDates[lucky_index]
+	avatarObject.SET_APPEARANCE(acceptedDates[lucky_index])
+	print(acceptedDates[lucky_index])
 	currentState = PARTNER_DISPLAY
-func _show_match():
-	avatarObject.SET_APPEARANCE(currPartnerAppearance)
-	print("your match: ", currPartnerAppearance)
 	
 func _generateOffspring():
-	for i in range(BODY_PARTS.size()): #body parts in order
-		var my_part = currPlayerAppearance[i]
-		var her_part = currPartnerAppearance[i]
-		
-		#get success rate, compare
-		#pick between her part vs my_part
-	pass
+	for i in range(BODY_PARTS.size()):
+#			var my_part = currPlayerAppearance[i]
+#			var her_part = currPartnerAppearance[i]
+#			randomize()
+			var cointoss = randi()%2
+			print(cointoss)
+			if cointoss <= 0:
+				currPlayerAppearance[i] = currPartnerAppearance[i]
+			else:
+				currPlayerAppearance[i] = currPlayerAppearance[i]
+	print(currPlayerAppearance)
+	avatarObject.SET_APPEARANCE(currPlayerAppearance)
 
 func _evolution_animation_fancy():
-		var time = (OS.get_ticks_msec() - time_stamp) /1000.0
+		var time = (OS.get_ticks_msec() - time_stamp) / 1000.0
 		if time > 0.15:
 			var evo_look = []
 			randomize()
@@ -211,12 +219,12 @@ func _process(delta):
 			pass
 		PARTNER_DISPLAY:
 			#this guy likes you
-			_show_match()
+			#_show_match()
 			pass
 		PARTNER_COMBINE:
 			#sexy time
 			#blink avatars!!!!!!!!
-			_evolution_animation_fancy()
+			#_evolution_animation_fancy()
 			pass
 		RESET:
 			#this is your baby aka your new player
