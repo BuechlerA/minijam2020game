@@ -90,13 +90,25 @@ func _on_confirmed(value):
 				#choice limit reached
 				print("reached choice limit")
 				print("accepted people: ", acceptedDates)
-				#now generate the offspring
 				phone.BUTTON_VISIBLE("NO",false)
-				randomize()
-				phone.SET_MESSAGE( messages[randi()%messages.size()]  )
 				st = RESULT
-				pass
-	
+				
+	elif st == RESULT: #any button press
+		st = PARTNER_DISPLAY
+		
+	elif st == PARTNER_DISPLAY:
+		randomize()
+		_only_one_wins()
+		phone.SET_MESSAGE( "Adam :" + messages[randi()%messages.size()]  )
+		st = PARTNER_COMBINE
+		
+	elif st == PARTNER_COMBINE:
+		_generateOffspring()
+		#run evolution animation
+		#if animation ended, st to RESET
+		phone.SET_MESSAGE( "This is your new baby")
+		#set main avatar to baby
+
 func _show_self(showself = false):
 	if showself == true:
 		avatarObject.SET_APPEARANCE(currPlayerAppearance)
