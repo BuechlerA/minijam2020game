@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/bg_04.png-e1b7a147852b7a135c8fecc4acf1a977.s3tc.stex"
+path.etc2="res://.import/bg_04.png-e1b7a147852b7a135c8fecc4acf1a977.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/bg/bg_04.png"
+dest_files=[ "res://.import/bg_04.png-e1b7a147852b7a135c8fecc4acf1a977.s3tc.stex", "res://.import/bg_04.png-e1b7a147852b7a135c8fecc4acf1a977.etc2.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

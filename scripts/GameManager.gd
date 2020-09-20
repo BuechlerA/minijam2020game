@@ -186,7 +186,6 @@ func _generateOffspring():
 	avatarObject.SET_APPEARANCE(currPlayerAppearance)
 
 func _evolution_animation_fancy():
-<<<<<<< Updated upstream
 		var time = (OS.get_ticks_msec() - time_stamp) / 1000.0
 		if time > 0.15:
 			var evo_look = []
@@ -200,23 +199,6 @@ func _evolution_animation_fancy():
 			avatarObject.SET_APPEARANCE(evo_look)
 			time_stamp = OS.get_ticks_msec()
 
-=======
-	var time = (OS.get_ticks_msec() - time_stamp) /1000.0
-	if time > 0.15:
-		var evo_look = []
-		randomize()
-		var part = ""
-		for i in range(BODY_PARTS.size()):
-			var switch = randi() & 1
-			if switch == 0:	
-				part = currPlayerAppearance[i]
-			else:			
-				part = currPartnerAppearance[i]
-			evo_look.append(part)
-		avatarObject.SET_APPEARANCE(evo_look)
-		time_stamp = OS.get_ticks_msec()
-		
->>>>>>> Stashed changes
 func _process(delta):
 	match currentState:
 		RESTART:
