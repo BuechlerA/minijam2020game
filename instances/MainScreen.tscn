@@ -72,11 +72,11 @@ margin_right = 135.691
 margin_bottom = 247.0
 
 [node name="Label" parent="EasterEggs/Dex" index="0"]
-margin_left = -60.6716
+margin_left = -116.165
 margin_top = 22.0
-margin_right = 88.3284
+margin_right = 102.835
 margin_bottom = 37.0
-text = "Pick up chu? Pick a chew?"
+text = "Pick up chu? Pick a chew? Peek at chu?"
 
 [node name="Sans" parent="EasterEggs" instance=ExtResource( 1 )]
 margin_left = 251.0
@@ -113,9 +113,9 @@ margin_right = 11.5815
 margin_bottom = 108.159
 
 [node name="Label" parent="EasterEggs/BEN" index="0"]
-margin_left = 4.71272
+margin_left = 16.6764
 margin_top = -24.9232
-margin_right = 88.7127
+margin_right = 100.676
 margin_bottom = -5.92324
 text = "I love my kitten!"
 
@@ -126,10 +126,10 @@ margin_right = 252.58
 margin_bottom = 245.523
 
 [node name="Label" parent="EasterEggs/JOHN" index="0"]
-margin_left = -44.7134
-margin_top = -5.15591
-margin_right = 3.28662
-margin_bottom = 13.8441
+margin_left = -59.6561
+margin_top = -14.1667
+margin_right = -11.6561
+margin_bottom = 4.83328
 text = "John ö.ö"
 
 [node name="HIEU" parent="EasterEggs" instance=ExtResource( 1 )]
