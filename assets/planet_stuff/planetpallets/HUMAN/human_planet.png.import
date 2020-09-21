@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/ice_planet.png-b4551228ed40b3e802fb2e556c506bad.s3tc.stex"
-path.etc2="res://.import/ice_planet.png-b4551228ed40b3e802fb2e556c506bad.etc2.stex"
+path.s3tc="res://.import/human_planet.png-19ae999f048464a0e493df2205758826.s3tc.stex"
+path.etc2="res://.import/human_planet.png-19ae999f048464a0e493df2205758826.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/planet_stuff/planetpallets/ICE/ice_planet.png"
-dest_files=[ "res://.import/ice_planet.png-b4551228ed40b3e802fb2e556c506bad.s3tc.stex", "res://.import/ice_planet.png-b4551228ed40b3e802fb2e556c506bad.etc2.stex" ]
+source_file="res://assets/planet_stuff/planetpallets/HUMAN/human_planet.png"
+dest_files=[ "res://.import/human_planet.png-19ae999f048464a0e493df2205758826.s3tc.stex", "res://.import/human_planet.png-19ae999f048464a0e493df2205758826.etc2.stex" ]
 
 [params]
 

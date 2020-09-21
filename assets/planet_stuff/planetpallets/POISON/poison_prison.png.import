@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/realplanet..png-439e9c11fc53582e10eecb7744491eab.s3tc.stex"
-path.etc2="res://.import/realplanet..png-439e9c11fc53582e10eecb7744491eab.etc2.stex"
+path.s3tc="res://.import/poison_prison.png-e74b28efeb820f38d6ed6de55ad0ee4a.s3tc.stex"
+path.etc2="res://.import/poison_prison.png-e74b28efeb820f38d6ed6de55ad0ee4a.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/planet_stuff/planetpallets/HUMAN/realplanet..png"
-dest_files=[ "res://.import/realplanet..png-439e9c11fc53582e10eecb7744491eab.s3tc.stex", "res://.import/realplanet..png-439e9c11fc53582e10eecb7744491eab.etc2.stex" ]
+source_file="res://assets/planet_stuff/planetpallets/POISON/poison_prison.png"
+dest_files=[ "res://.import/poison_prison.png-e74b28efeb820f38d6ed6de55ad0ee4a.s3tc.stex", "res://.import/poison_prison.png-e74b28efeb820f38d6ed6de55ad0ee4a.etc2.stex" ]
 
 [params]
 
