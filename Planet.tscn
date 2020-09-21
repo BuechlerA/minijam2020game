@@ -93,6 +93,7 @@ texture = ExtResource( 6 )
 [node name="Stars" type="Viewport" parent="."]
 size = Vector2( 450, 450 )
 handle_input_locally = false
+hdr = false
 render_target_update_mode = 3
 
 [node name="star" type="MeshInstance" parent="Stars"]
@@ -114,7 +115,7 @@ size = 24.4228
 size = Vector2( 450, 450 )
 transparent_bg = true
 handle_input_locally = false
-keep_3d_linear = true
+hdr = false
 render_target_update_mode = 3
 script = ExtResource( 1 )
 
