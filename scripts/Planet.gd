@@ -31,26 +31,15 @@ func generate(element):
 			var uv = Vector2(dist_normalized, 0)
 			surf.set_vertex_uv(i, uv)
 
-	var files = []
-	var dir = Directory.new()
-	var path = "res://assets/planet_stuff/planetpallets/" + element 
-	dir.open(path)
-	dir.list_dir_begin()
-
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-
-		if file.ends_with("png"):
-			files.append(file)
-
+	var f = File.new()
+	f.open("res://assets/planet_stuff/pallete_map.json", File.READ)
+	var palletes = parse_json(f.get_as_text())[element]
+	f.close()
 	
-	print(element)
-	var whichFile = randi()%len(files)
+	var whichFile = randi()%len(palletes)
 	var mmesh = ArrayMesh.new()
 	surf.commit_to_surface(mmesh)
 	mmesh.surface_set_material(0, preload("res://assets/planet_stuff/Planet.tres"))
-	mmesh.surface_get_material(0).albedo_texture = load(path + "/" + files[whichFile])
+	mmesh.surface_get_material(0).albedo_texture = load(palletes[whichFile])
 	$MeshInstance.mesh = mmesh
 
